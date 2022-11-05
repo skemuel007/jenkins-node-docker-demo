@@ -29,3 +29,13 @@ npm run start
 or 
 npm run start:dev [For nodemon option]
 ```
+
+## Build Dockefile.slave
+
+```bash
+docker ps -a
+
+docker-compose -f docker-compose.yml up -d
+
+
+```
