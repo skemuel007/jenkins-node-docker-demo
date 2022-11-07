@@ -2,13 +2,21 @@ version: "3.7"
 
 services:
   jenkins:
-    image: jenkins/jenkins
+    # image: jenkins/jenkins
+    build: ./docker/master
     restart: always
     ports:
       - 3004:8080
       - 50000:50000
     volumes:
       - jenkins_data:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - jenkins-network
+    user: root
 
+networks:
+  jenkins-network:
+    name: jenkins
 volumes:
   jenkins_data:
